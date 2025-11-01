@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos Futuros</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'logo_kdu.png' %}" alt="K&DU Barber Shop Logo">
+        </div>
+        
+        <h1>Próximos Agendamentos</h1>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if agendamentos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Cliente</th>
+                    <th>Data e Hora</th>
+                    <th>Serviço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for agendamento in agendamentos %}
+                <tr>
+                    <td>{{ agendamento.nome_cliente }}</td>
+                    <td>{{ agendamento.data_e_hora|date:"d/m/Y H:i" }}</td>
+                    <td>{{ agendamento.servico }}</td>
+                    <td>
+                        <a href="{% url 'editar_agendamento' agendamento.pk %}" class="action-button edit-button">Editar</a>
+                        
+                        <form method="post" action="{% url 'deletar_agendamento' agendamento.pk %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="action-button delete-button" onclick="return confirm('Tem certeza que deseja excluir este agendamento?');">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Não há agendamentos futuros.</p>
+        {% endif %}
+
+        <br>
+        <a href="{% url 'agendar_corte' %}" class="link-agendar">Novo Agendamento</a>
+    </div>
+</body>
+</html>

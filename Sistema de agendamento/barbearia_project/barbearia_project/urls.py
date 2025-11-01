@@ -1,0 +1,9 @@
+# barbearia_project/urls.py (Certifique-se que esta linha existe)
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('agendamentos.urls')), # Onde suas rotas (incluindo /login) estão definidas
+]

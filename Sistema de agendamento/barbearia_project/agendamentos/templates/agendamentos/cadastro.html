@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Cliente</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container" style="max-width: 400px;">
+        <div class="logo">
+            <img src="{% static 'logo_kdu.png' %}" alt="K&DU Barber Shop Logo">
+        </div>
+        
+        <h1>Novo Cadastro</h1>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+                <ul class="errorlist">
+                    {% for field in form %}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    {{ form.non_field_errors }}
+                </ul>
+            {% endif %}
+
+            {% for field in form %}
+                <p>
+                    {{ field.label_tag }}
+                    {{ field }}
+                </p>
+            {% endfor %}
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        
+        <p style="margin-top: 15px;">Já tem conta? <a href="{% url 'login' %}" style="color: #000000; font-weight: bold;">Faça Login</a></p>
+    </div>
+</body>
+</html>

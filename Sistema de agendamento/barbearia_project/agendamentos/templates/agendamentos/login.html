@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container" style="max-width: 400px;">
+        <div class="logo">
+            <img src="{% static 'logo_kdu.png' %}" alt="K&DU Barber Shop Logo">
+        </div>
+        
+        <h1>Login</h1>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+                <ul class="errorlist">
+                    {{ form.non_field_errors }}
+                </ul>
+            {% endif %}
+
+            {% for field in form %}
+                <p>
+                    {{ field.label_tag }}
+                    {{ field }}
+                </p>
+            {% endfor %}
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p style="margin-top: 15px;">Não tem conta? <a href="{% url 'cadastro' %}" style="color: #000000; font-weight: bold;">Cadastre-se</a></p>
+    </div>
+</body>
+</html>
