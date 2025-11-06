@@ -36,7 +36,7 @@
             <tbody>
                 {% for agendamento in agendamentos %}
                 <tr>
-                    <td>{{ agendamento.nome_cliente }}</td>
+                    <td>{{ agendamento.cliente }}</td>
                     <td>{{ agendamento.data_e_hora|date:"d/m/Y H:i" }}</td>
                     <td>{{ agendamento.servico }}</td>
                     <td>

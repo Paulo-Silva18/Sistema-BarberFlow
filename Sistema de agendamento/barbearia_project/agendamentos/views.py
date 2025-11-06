@@ -37,7 +37,7 @@ def agendar_corte(request):
 def lista_agendamentos(request):
     # Filtra por agendamentos futuros e ordena por data e hora
     agendamentos = Agendamento.objects.filter(data_e_hora__gte=timezone.now()).order_by('data_e_hora')
-    
+
     return render(request, 'agendamentos/lista_agendamentos.html', {'agendamentos': agendamentos})
 
 @login_required

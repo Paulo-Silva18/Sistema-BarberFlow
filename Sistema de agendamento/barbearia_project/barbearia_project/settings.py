@@ -79,9 +79,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'barbearia_db',
         'USER': 'root',
-        'PASSWORD': 'Pede@10571057',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3307',
     }
 }
 
