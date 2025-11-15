@@ -49,10 +49,13 @@ Faça o mesmo processo para o Barbeiro:
 
 Cadastro: Acesse a URL: http://127.0.0.1:8000/cadastro/
 Crie uma nova conta de cliente. Você será logado automaticamente.
+
 Login: Se já tiver conta, acesse http://127.0.0.1:8000/login/ e entre.
+
 Agendar: Na página inicial (/), você (agora logado) verá o formulário.
 Selecione o Barbeiro, o Serviço e a Data e Hora.
 Clique em "Agendar".
 O sistema validará as regras de negócio (não permite horários ocupados e nem aos domingos).
+
 Listar/Editar/Excluir: Acesse http://127.0.0.1:8000/lista-agendamentos/ para ver seus agendamentos futuros.
 Você pode editar (mudar o horário) ou excluir um agendamento.
