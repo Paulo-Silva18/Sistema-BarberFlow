@@ -17,7 +17,8 @@ Abra o PowerShell e dentro dele faça as seguintes instruções:
 2. Crie uma máquina virtual (venv) usando o comando python -m venv sistema_de_agendamento na pasta navegada.
 3. Ative a venv usando o comando .\sistema_de_agendamento\Scripts\Activate.ps1
 4. Após isso, navegue até a pasta barbearia_project dentro da pasta Sistema de agendamento usando o comando cd (Ex: cd "C:\Users\Paulo Henrique\Documents\Sistema de agendamento\barbearia_project")
-5. Use o comando pip install -r requirements.txt e espere instalar todas as bibliotecas
+5. Após isso, navegue até a pasta barbearia_project dentro da pasta Sistema de agendamento usando o comando cd barbearia_project
+6. Use o comando pip install -r requirements.txt e espere instalar todas as bibliotecas
 
 Feche o PowerShell e abra o VSCODE na pasta Sistema de agendamento. Ao abrir, acesse o arquivo settings.py em Sistema de agendamento\barbearia_project\barbearia_project. Acessando o arquivo vá até na parte do código na print abaixo:
 <img width="595" height="325" alt="image" src="https://github.com/user-attachments/assets/594627f8-02dc-4cbf-99e9-b0bbee4eb0a7" />
